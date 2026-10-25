@@ -1,0 +1,24 @@
+# Dependencies are installed inside the container so native binaries match Linux/musl.
+node_modules
+npm-debug.log*
+
+# Build output
+dist
+
+# Docker
+Dockerfile
+.dockerignore
+
+# VCS and IDE
+.git
+.gitignore
+.vscode
+.idea
+
+# Local environment files must never be baked into the image.
+.env
+.env.*
+
+# OS artifacts
+.DS_Store
+Thumbs.db

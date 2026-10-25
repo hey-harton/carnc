@@ -1,0 +1,431 @@
+/**
+ * CarNC global stylesheet ("Clean Forest Minimalist").
+ *
+ * Defines self-hosted fonts, design tokens as CSS custom properties,
+ * Carbon v10 component overrides, and responsive layout rules.
+ */
+
+/* ==========================================================================
+   Fonts (self-hosted variable fonts; no external CDN)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/Outfit-Variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Variable.ttf') format('truetype-variations');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Design tokens and base styles
+   ========================================================================== */
+
+:root {
+  --carnc-bg: #f8faf9;
+  --carnc-surface: #ffffff;
+  --carnc-primary-green: #047857;
+  --carnc-primary-hover: #065f46;
+  --carnc-primary-light: #d1fae5;
+  --carnc-emerald-vibrant: #10b981;
+  --carnc-dark-header: #0b1612;
+  --carnc-text-dark: #0f172a;
+  --carnc-text-muted: #64748b;
+  --carnc-border: #e2e8f0;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  background-color: var(--carnc-bg);
+  color: var(--carnc-text-dark);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Carbon overrides: Buttons
+   ========================================================================== */
+
+.bx--btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  min-height: 2.75rem !important;
+  max-width: none !important;
+  width: auto !important;
+  box-sizing: border-box !important;
+}
+
+.bx--btn--primary {
+  background-color: var(--carnc-primary-green) !important;
+  color: #ffffff !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--carnc-primary-green) !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  width: auto !important;
+}
+
+.bx--btn--primary:hover {
+  background-color: var(--carnc-primary-hover) !important;
+  border-color: var(--carnc-primary-hover) !important;
+}
+
+.bx--btn--secondary {
+  background-color: var(--carnc-dark-header) !important;
+  color: #ffffff !important;
+  font-family: 'Outfit', sans-serif !important;
+  border-radius: 6px !important;
+}
+
+.bx--btn--ghost {
+  color: var(--carnc-primary-green) !important;
+  font-family: 'Outfit', sans-serif !important;
+  border-radius: 4px !important;
+}
+
+.bx--btn--ghost:hover {
+  background-color: var(--carnc-primary-light) !important;
+  color: var(--carnc-primary-hover) !important;
+}
+
+/* ==========================================================================
+   Carbon overrides: Tiles
+   ========================================================================== */
+
+.bx--tile {
+  background-color: #ffffff !important;
+  border: 1px solid var(--carnc-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* ==========================================================================
+   Carbon overrides: Form controls
+   ========================================================================== */
+
+.bx--text-input:focus,
+.bx--select-input:focus {
+  outline: 2px solid var(--carnc-primary-green) !important;
+  outline-offset: -2px !important;
+}
+
+.bx--checkbox-label::before {
+  border-radius: 3px !important;
+}
+
+.bx--checkbox:checked + .bx--checkbox-label::before {
+  background-color: var(--carnc-primary-green) !important;
+  border-color: var(--carnc-primary-green) !important;
+}
+
+/* ==========================================================================
+   Carbon overrides: Header
+   ========================================================================== */
+
+.bx--header {
+  background-color: var(--carnc-dark-header) !important;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+.bx--header__name {
+  color: #ffffff !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* ==========================================================================
+   Hero section (desktop default)
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - 3rem);
+  width: 100%;
+  background-image: url('/images/hero-bg.svg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+}
+
+.hero-mobile-visual {
+  display: none;
+}
+
+.hero-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-card {
+  max-width: 620px;
+  width: 100%;
+  background-color: #0c1713;
+  padding: 3.5rem;
+  border-radius: 16px;
+  border: 1px solid #1e382b;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.hero-description {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin: 0 0 2rem 0;
+}
+
+.hero-actions {
+  display: flex;
+}
+
+.hero-btn,
+.predict-submit-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0.75rem 1.6rem !important;
+  padding-left: 1.6rem !important;
+  padding-right: 1.6rem !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.2px !important;
+  line-height: 1.2 !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+}
+
+.hero-btn {
+  background-color: #10b981 !important;
+  color: #064e3b !important;
+  border: 1px solid #10b981 !important;
+}
+
+.hero-btn:hover {
+  background-color: #059669 !important;
+  color: #ffffff !important;
+  border-color: #059669 !important;
+}
+
+.predict-submit-btn {
+  background-color: var(--carnc-primary-green) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--carnc-primary-green) !important;
+}
+
+.predict-submit-btn:hover {
+  background-color: var(--carnc-primary-hover) !important;
+  border-color: var(--carnc-primary-hover) !important;
+}
+
+/* ==========================================================================
+   Responsive: Tablet and mobile (max-width: 768px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto !important;
+    background-image: none !important;
+    background-color: #0c1713 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* Full-width image banner above the hero card so the car stays visible. */
+  .hero-mobile-visual {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 38vh !important;
+    min-height: 240px !important;
+    max-height: 340px !important;
+    background-image: url('/images/hero-bg.svg') !important;
+    background-size: cover !important;
+    background-position: 28% 25% !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .hero-mobile-visual::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 60px !important;
+    background: linear-gradient(180deg, rgba(12, 23, 19, 0) 0%, #0c1713 100%) !important;
+    pointer-events: none !important;
+  }
+
+  .hero-container {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .hero-card {
+    max-width: 100% !important;
+    width: 100% !important;
+    background-color: #0c1713 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 1.5rem 1.25rem 2.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-title {
+    font-size: 1.85rem !important;
+    margin-bottom: 0.85rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-description {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .hero-btn,
+  .predict-submit-btn {
+    width: auto !important;
+    max-width: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.75rem 1.6rem !important;
+    padding-left: 1.6rem !important;
+    padding-right: 1.6rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .predict-section {
+    padding: 2.5rem 1rem 3.5rem !important;
+  }
+
+  .predict-tile {
+    padding: 1.75rem 1.25rem !important;
+    border-radius: 14px !important;
+  }
+
+  .predict-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
+    gap: 0.85rem !important;
+  }
+
+  .result-card {
+    padding: 2rem 1.25rem !important;
+    border-radius: 14px !important;
+  }
+
+  .footer-container {
+    height: auto !important;
+    min-height: 3rem !important;
+    padding: 0.85rem 1rem !important;
+  }
+
+  .footer-text {
+    font-size: 0.75rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive: Small phones (max-width: 480px)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .hero-mobile-visual {
+    height: 35vh !important;
+    min-height: 220px !important;
+    background-position: 28% 20% !important;
+  }
+
+  .hero-card {
+    padding: 1.25rem 1rem 2.25rem !important;
+  }
+
+  .hero-title {
+    font-size: 1.65rem !important;
+  }
+
+  .predict-section {
+    padding: 2rem 0.75rem 3rem !important;
+  }
+
+  .predict-tile {
+    padding: 1.5rem 1rem !important;
+    border-radius: 12px !important;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .result-card {
+    padding: 1.75rem 1rem !important;
+  }
+
+  .hero-btn,
+  .predict-submit-btn {
+    width: auto !important;
+    max-width: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.75rem 1.4rem !important;
+    padding-left: 1.4rem !important;
+    padding-right: 1.4rem !important;
+    box-sizing: border-box !important;
+  }
+}

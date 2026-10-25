@@ -1,0 +1,26 @@
+services:
+  models-app:
+    build: ./models-app
+    container_name: models-app-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models-app:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  landing-app:
+    build: ./landing-app
+    container_name: landing-app-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./landing-app:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - models-app
+    command: npm start

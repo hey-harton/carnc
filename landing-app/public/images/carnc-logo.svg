@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161616" />
+      <stop offset="100%" stop-color="#0f62fe" />
+    </linearGradient>
+
+    <!-- Metallic Accent Gradient -->
+    <linearGradient id="carBodyGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#d0e2ff" />
+      <stop offset="100%" stop-color="#78a9ff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base Rounded Container -->
+  <rect width="128" height="128" rx="28" fill="url(#bgGrad)" />
+  <rect width="126" height="126" x="1" y="1" rx="27" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="2" />
+
+  <!-- Speed Grid Accent Lines -->
+  <path d="M16 96 L112 96" stroke="#4589ff" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="4 4" />
+  <path d="M24 102 L104 102" stroke="#4589ff" stroke-width="1" stroke-opacity="0.2" />
+
+  <!-- Aerodynamic Car Silhouette -->
+  <!-- Roof and Windshield -->
+  <path d="M38 58 Q46 38 64 38 Q82 38 90 58 Z" fill="none" stroke="url(#carBodyGrad)" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M42 56 Q50 43 64 43 Q78 43 86 56 Z" fill="#0f62fe" fill-opacity="0.35" />
+
+  <!-- Main Hood and Body Contour -->
+  <path d="M22 72 Q32 64 42 62 L86 62 Q96 64 106 72 Q108 76 104 80 L98 83 Q64 86 30 83 L24 80 Q20 76 22 72 Z"
+        fill="url(#carBodyGrad)" />
+
+  <!-- Sleek Headlights (Flat Vector, No Blur Filter) -->
+  <polygon points="28,71 40,68 36,74 27,73" fill="#ffffff" />
+  <polygon points="100,71 88,68 92,74 101,73" fill="#ffffff" />
+
+  <!-- Center AI Node Accent -->
+  <circle cx="64" cy="72" r="3.5" fill="#0f62fe" />
+  <circle cx="64" cy="72" r="6" fill="none" stroke="#0043ce" stroke-width="1.5" opacity="0.8" />
+  <line x1="52" y1="72" x2="58" y2="72" stroke="#0f62fe" stroke-width="2" stroke-linecap="round" />
+  <line x1="70" y1="72" x2="76" y2="72" stroke="#0f62fe" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Front Splitter / Lower Intake -->
+  <path d="M38 82 Q64 87 90 82" stroke="#161616" stroke-width="3" stroke-linecap="round" fill="none" />
+</svg>
