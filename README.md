@@ -38,7 +38,7 @@ docker-learning/
 ├── docker-compose.yml                  # Konfigurasi orkestrasi container Docker (Frontend & Backend)
 ├── README.md                           # Dokumentasi utama proyek CarNC
 │
-├── landing-app/                        # [Frontend] React + Vite + TypeScript + IBM Carbon
+├── landing-app/                        # [Frontend] React + Vite + TypeScript
 │   ├── .dockerignore                   # File pengecualian saat build Docker frontend
 │   ├── .npmrc                          # Konfigurasi npm (legacy-peer-deps=true)
 │   ├── Dockerfile                      # Dockerfile image Node 24 Alpine untuk frontend
@@ -80,7 +80,7 @@ docker-learning/
 │           └── theme/                  # Konfigurasi styling & tema CarNC
 │               ├── index.ts            # Entry point export modul tema
 │               ├── theme.ts            # Design tokens JavaScript (warna, bayangan, tipografi)
-│               └── theme.css           # Override IBM Carbon, layout responsif & styling tema
+│               └── theme.css           # Override layout responsif & styling tema
 │
 └── models-app/                         # [Backend] FastAPI + Scikit-Learn Model Inference
     ├── Dockerfile                      # Dockerfile image Python 3.11 Slim untuk backend
@@ -114,7 +114,6 @@ docker-learning/
 | Lapisan | Komponen / Teknologi | Keterangan |
 | :--- | :--- | :--- |
 | **Frontend** | React 18, Vite 8, TypeScript 6 | Lingkungan frontend modern yang cepat dan *type-safe* |
-| **Design System** | IBM Carbon Design System v10 | Komponen UI kelas enterprise (`carbon-components-react`) |
 | **Fonts** | Outfit & Manrope (Variable Fonts) | Font statis lokal tanpa ketergantungan CDN eksternal |
 | **Backend API** | FastAPI, Uvicorn, Pydantic v2 | Server asynchronous berkinerja tinggi dengan validasi schema |
 | **Machine Learning**| Scikit-Learn 1.6.1, Joblib, Pandas 2.2+ | Model Random Forest Regressor terlatih untuk data otomotif |
