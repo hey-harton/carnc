@@ -21,6 +21,7 @@ wheels/
 *.egg
 MANIFEST
 *.pkl
+!models-app/random_forest_used_car.pkl
 *.joblib
 *.h5
 *.pb
@@ -69,7 +70,6 @@ frontend/.cache/
 Thumbs.db
 
 # Model files (sensitive or large)
-*.pkl
 *.joblib
 *.h5
 *.pt
