@@ -1,0 +1,21 @@
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Git and IDE
+.git
+.gitignore
+.vscode
+.idea
+
+# Docker files
+Dockerfile
+.dockerignore
