@@ -1,7 +1,8 @@
 services:
   models-app:
     build: ./models-app
-    container_name: models-app-backend
+    image: tpm-model-apps:latest
+    container_name: tpm-model-apps
     ports:
       - "8000:8000"
     volumes:
@@ -12,7 +13,8 @@ services:
 
   landing-app:
     build: ./landing-app
-    container_name: landing-app-frontend
+    image: tpm-landing-apps:latest
+    container_name: tpm-landing-apps
     ports:
       - "3000:3000"
     volumes:

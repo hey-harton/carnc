@@ -4,8 +4,9 @@ FROM node:24-alpine
 WORKDIR /app
 
 # Install dependencies first to maximize Docker layer caching.
-COPY package*.json ./
-RUN npm install
+# Include .npmrc (legacy-peer-deps=true) required for Carbon v10 + React 18 peer resolution.
+COPY package*.json .npmrc* ./
+RUN npm install --legacy-peer-deps
 
 COPY . .
 
