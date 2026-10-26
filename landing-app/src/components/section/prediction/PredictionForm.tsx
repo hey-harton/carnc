@@ -22,8 +22,9 @@ interface PredictionResult {
   input: Record<string, any>;
 }
 
-/** Base URL of the prediction API. Override with `VITE_API_URL`. */
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+/** Base URL of the prediction API. Strips any trailing slashes to prevent double-slash 404s. */
+const rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = rawApiUrl.replace(/\/+$/, '');
 
 /**
  * Car specification form that submits vehicle features to the prediction API
