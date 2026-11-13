@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 import joblib
 import pandas as pd
 import os
+import socket
 
 app = FastAPI(title="Used Car Price Prediction API")
 
@@ -58,14 +59,20 @@ class UsedCarPredictionRequest(BaseModel):
 @app.get("/")
 def read_root():
     return {
+        "status": "online",
         "message": "Used Car Price Prediction API is running",
         "model_loaded": model is not None,
+        "served_by_host": socket.gethostname(),
     }
 
 
 @app.get("/health")
 def health_check():
-    return {"status": "healthy", "model_loaded": model is not None}
+    return {
+        "status": "healthy",
+        "model_loaded": model is not None,
+        "served_by_host": socket.gethostname(),
+    }
 
 
 @app.post("/predict")
@@ -100,10 +107,12 @@ def predict(request: UsedCarPredictionRequest):
         pred_value = float(prediction[0])
 
         return {
+            "status": "success",
             "success": True,
             "predicted_price": pred_value,
             "predicted_price_formatted": f"Rp {pred_value:,.0f}".replace(",", "."),
             "input": data,
+            "served_by_host": socket.gethostname(),
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")

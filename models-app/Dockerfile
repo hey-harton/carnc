@@ -1,6 +1,11 @@
 # Base image Python
 FROM python:3.11-slim
 
+# Install curl untuk mendukung pengujian healthcheck Docker
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
 # Set working directory
 WORKDIR /app
 
